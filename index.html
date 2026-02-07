@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QTick Suite | ABC Expo 2026 Special</title>
+    <meta name="description"
+        content="Visit QTick Suite at ABC Expo 2026! Get your Free Salon Website and win prizes. #abcexpo2026 #aihba #aihbasouthindia #aihbaawards #abcexpo">
+    <meta name="keywords"
+        content="abcexpo2026, aihba, aihbasouthindia, aihbaawards, abcexpo, salon software, qtick, free website, salon marketing">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #fcfaf7;
+            color: #0f172a;
+        }
+
+        /* --- Animations --- */
+        @keyframes blob {
+            0% {
+                transform: translate(0px, 0px) scale(1);
+            }
+
+            33% {
+                transform: translate(30px, -50px) scale(1.1);
+            }
+
+            66% {
+                transform: translate(-20px, 20px) scale(0.9);
+            }
+
+            100% {
+                transform: translate(0px, 0px) scale(1);
+            }
+        }
+
+        .animate-blob {
+            animation: blob 10s infinite alternate ease-in-out;
+        }
+
+        .animation-delay-2000 {
+            animation-delay: 2s;
+        }
+
+        .animation-delay-4000 {
+            animation-delay: 4s;
+        }
+
+        @keyframes spin-slow {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .animate-spin-slow {
+            animation: spin-slow 15s linear infinite;
+        }
+
+        @keyframes scroll-marquee {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        .animate-scroll-marquee {
+            animation: scroll-marquee 40s linear infinite;
+        }
+
+        @keyframes glow-pulse {
+
+            0%,
+            100% {
+                box-shadow: 0 0 5px rgba(217, 119, 6, 0.2);
+            }
+
+            50% {
+                box-shadow: 0 0 20px rgba(217, 119, 6, 0.4);
+            }
+        }
+
+        .animate-glow-pulse {
+            animation: glow-pulse 2s infinite;
+        }
+
+        /* --- Text Gradients --- */
+        .animate-gradient-text {
+            background: linear-gradient(to right, #fbbf24, #f43f5e, #10b981, #3b82f6, #fbbf24);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            color: transparent;
+            animation: gradient-anim 4s linear infinite;
+        }
+
+        @keyframes gradient-anim {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            100% {
+                background-position: 200% 50%;
+            }
+        }
+
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        .mask-gradient {
+            mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+        }
+
+        /* --- Tab Logic --- */
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+            animation: tabFadeIn 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        @keyframes tabFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px) scale(0.98);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        /* --- Menu Button Persistence Fixes --- */
+        .menu-btn {
+            background-color: rgba(255, 255, 255, 0.4);
+            border: 1px solid white;
+            backdrop-filter: blur(4px);
+            transition: all 0.3s ease;
+        }
+
+        .menu-btn i,
+        .menu-btn svg {
+            color: #94a3b8;
+            transition: color 0.3s;
+        }
+
+        .menu-btn span {
+            color: #94a3b8;
+            opacity: 0.6;
+            transition: all 0.3s;
+        }
+
+        .menu-btn.active {
+            background-color: white !important;
+            border-color: #d97706 !important;
+            box-shadow: 0 0 30px rgba(245, 158, 11, 0.4) !important;
+            transform: scale(1.1) !important;
+            z-index: 20;
+        }
+
+        .menu-btn.active i,
+        .menu-btn.active svg {
+            color: #d97706 !important;
+        }
+
+        .menu-btn.active span {
+            color: #0f172a !important;
+            opacity: 1 !important;
+        }
+
+        .menu-btn:not(.active):hover {
+            background-color: rgba(255, 255, 255, 0.8);
+            transform: translateY(-2px);
+        }
+
+        .menu-btn:not(.active):hover i,
+        .menu-btn:not(.active):hover svg {
+            color: #d97706;
+        }
+    </style>
+</head>
+
+<body class="min-h-screen lg:h-screen flex flex-col overflow-x-hidden lg:overflow-hidden relative">
+
+    <!-- Background Decoration -->
+    <div class="fixed inset-0 pointer-events-none overflow-hidden z-0">
+        <div
+            class="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-amber-200/20 blur-[120px] rounded-full animate-blob">
+        </div>
+        <div
+            class="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] bg-rose-200/20 blur-[120px] rounded-full animate-blob animation-delay-2000">
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header
+        class="bg-white/60 backdrop-blur-xl border-b border-amber-100 px-4 md:px-8 py-3 md:py-4 flex items-center justify-between shrink-0 sticky top-0 z-50 shadow-sm">
+        <div class="flex items-center gap-2 md:gap-3 flex-wrap">
+            <img src="asset/QTick-Logo.png" alt="QTick Logo" class="h-8 md:h-10 w-auto" />
+            <span class="font-black text-lg md:text-xl tracking-tight text-slate-800">QTick</span>
+            <span class="font-black text-lg md:text-xl tracking-tight text-amber-600">Participating in</span>
+            <img src="asset/Abc-logo.PNG" alt="ABC Expo Logo" class="h-10 md:h-12 w-auto object-contain" />
+            <span class="font-black text-lg md:text-xl tracking-tight text-amber-600">ABC Expo 2026</span>
+            <a href="https://www.instagram.com/aihbasouthindia/" target="_blank"
+                class="inline-flex items-center gap-1 text-slate-500 font-bold text-xs hover:text-amber-600 transition-colors ml-2">
+                <i data-lucide="info" class="w-3 h-3"></i> Know more
+            </a>
+        </div>
+
+        <div class="hidden xl:flex items-center gap-3">
+            <a href="https://www.qtick.com" target="_blank"
+                class="px-3 py-1.5 bg-white/40 hover:bg-amber-50 rounded-xl text-xs font-black uppercase tracking-wider transition-all border border-slate-200 backdrop-blur-sm flex items-center gap-2">
+                <i data-lucide="globe" class="w-3.5 h-3.5"></i> qtick.com
+            </a>
+            <a href="https://www.qtick.biz" target="_blank"
+                class="px-3 py-1.5 bg-white/40 hover:bg-amber-50 rounded-xl text-xs font-black uppercase tracking-wider transition-all border border-slate-200 backdrop-blur-sm flex items-center gap-2">
+                <i data-lucide="briefcase" class="w-3.5 h-3.5"></i> qtick biz
+            </a>
+            <a href="https://www.qtick.co/industry-salon-software.html" target="_blank"
+                class="px-3 py-1.5 bg-rose-50 hover:bg-rose-100 text-rose-700 rounded-xl text-xs font-black uppercase tracking-wider transition-all border border-rose-200 backdrop-blur-sm flex items-center gap-2">
+                <i data-lucide="external-link" class="w-3.5 h-3.5"></i> salon app
+            </a>
+        </div>
+
+        <div class="flex items-center gap-2">
+            <div
+                class="flex items-center gap-1 text-[10px] md:text-xs font-black text-amber-600 uppercase bg-amber-100/50 px-3 py-1.5 rounded-full border border-amber-200 animate-glow-pulse">
+                <i data-lucide="zap" class="w-3 h-3"></i> ABC Expo Live
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Dashboard Container -->
+    <main class="flex-1 flex flex-col lg:flex-row overflow-y-auto lg:overflow-hidden relative z-10">
+
+        <!-- Left Column: Content & Navigation -->
+        <div class="flex-1 overflow-y-auto p-4 md:p-8 lg:p-12 flex flex-col">
+            <div class="max-w-4xl mx-auto w-full">
+
+
+                <h1 class="text-3xl md:text-5xl font-black text-slate-900 leading-[0.95] tracking-tighter mb-4">
+                    Welcome to QTick at ABC Expo<br />
+                    <span class="text-amber-600">Avail Exclusive Offers.</span>
+                </h1>
+
+                <!-- CIRCULAR ORBIT MENU -->
+                <div class="relative mb-12 py-6">
+                    <div class="absolute inset-0 flex items-center justify-center opacity-10">
+                        <div
+                            class="w-full max-w-[450px] aspect-square rounded-full border-2 border-dashed border-amber-400 animate-spin-slow">
+                        </div>
+                    </div>
+
+                    <div class="flex flex-wrap justify-center items-center gap-4 md:gap-8 relative">
+                        <button onclick="switchTab('free-website')" id="btn-free-website"
+                            class="menu-btn active relative w-20 h-20 md:w-24 md:h-24 rounded-full flex flex-col items-center justify-center z-10">
+                            <i data-lucide="globe" class="w-6 h-6 md:w-8 md:h-8"></i>
+                            <span class="mt-1 text-[8px] md:text-[9px] font-black uppercase">Free Site</span>
+                        </button>
+                        <button onclick="switchTab('challenge')" id="btn-challenge"
+                            class="menu-btn relative w-20 h-20 md:w-24 md:h-24 rounded-full flex flex-col items-center justify-center z-10">
+                            <i data-lucide="trending-up" class="w-6 h-6 md:w-8 md:h-8"></i>
+                            <span class="mt-1 text-[8px] md:text-[9px] font-black uppercase">$$9 Plan</span>
+                        </button>
+                        <button onclick="switchTab('pricing')" id="btn-pricing"
+                            class="menu-btn relative w-20 h-20 md:w-24 md:h-24 rounded-full flex flex-col items-center justify-center z-10">
+                            <i data-lucide="gem" class="w-6 h-6 md:w-8 md:h-8"></i>
+                            <span class="mt-1 text-[8px] md:text-[9px] font-black uppercase">Starter</span>
+                        </button>
+                        <button onclick="switchTab('corporate')" id="btn-corporate"
+                            class="menu-btn relative w-20 h-20 md:w-24 md:h-24 rounded-full flex flex-col items-center justify-center z-10">
+                            <i data-lucide="building-2" class="w-6 h-6 md:w-8 md:h-8"></i>
+                            <span class="mt-1 text-[8px] md:text-[9px] font-black uppercase">Corporate</span>
+                        </button>
+                        <button onclick="switchTab('luckydraw')" id="btn-luckydraw"
+                            class="menu-btn relative w-20 h-20 md:w-24 md:h-24 rounded-full flex flex-col items-center justify-center z-10">
+                            <i data-lucide="ticket" class="w-6 h-6 md:w-8 md:h-8"></i>
+                            <span class="mt-1 text-[8px] md:text-[9px] font-black uppercase">Lucky Draw</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Content Area Glass Card -->
+                <div
+                    class="bg-white/70 backdrop-blur-2xl border border-white rounded-[2.5rem] p-6 md:p-10 shadow-2xl min-h-[480px] flex flex-col justify-center relative overflow-hidden">
+
+                    <!-- Free Website -->
+                    <div id="free-website" class="tab-content active">
+                        <div
+                            class="flex flex-col md:flex-row justify-between items-start mb-8 pb-8 border-b border-amber-100 gap-6">
+                            <div>
+                                <div
+                                    class="inline-flex items-center gap-2 text-amber-600 font-black text-[10px] uppercase tracking-widest mb-3 bg-amber-50 px-3 py-1 rounded-full border border-amber-100">
+                                    <i data-lucide="sparkles" class="w-3 h-3"></i> ABC Expo Offer
+                                </div>
+                                <h2 class="text-2xl md:text-4xl font-black text-slate-900 mb-3 tracking-tighter">
+                                    Register & Get Free Website</h2>
+                                <p class="text-lg md:text-2xl text-amber-600 font-black italic">Clients see you online
+                                    instantly</p>
+                            </div>
+                            <div
+                                class="bg-amber-600 text-white px-8 py-5 rounded-[2rem] flex flex-col items-center justify-center shrink-0 shadow-xl">
+                                <span class="text-[10px] font-bold uppercase tracking-[0.2em] mb-1 opacity-80">Setup
+                                    Cost</span>
+                                <span class="text-5xl font-black tracking-tighter">FREE</span>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="flex gap-4 bg-white/50 p-5 rounded-2xl border border-white"><i
+                                    data-lucide="mouse-pointer-2" class="text-amber-600 w-6 h-6 shrink-0"></i>
+                                <div>
+                                    <p class="text-lg font-black text-slate-800">Local Visibility</p>
+                                    <p class="text-sm text-slate-500 font-medium">Rank on Google locally.</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4 bg-white/50 p-5 rounded-2xl border border-white"><i
+                                    data-lucide="smartphone" class="text-amber-600 w-6 h-6 shrink-0"></i>
+                                <div>
+                                    <p class="text-lg font-black text-slate-800">Mobile Ready</p>
+                                    <p class="text-sm text-slate-500 font-medium">One-tap booking UI.</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4 bg-white/50 p-5 rounded-2xl border border-white"><i
+                                    data-lucide="globe" class="text-amber-600 w-6 h-6 shrink-0"></i>
+                                <div>
+                                    <p class="text-lg font-black text-slate-800">Digital Identity</p>
+                                    <p class="text-sm text-slate-500 font-medium">Professional Salon URL.</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4 bg-white/50 p-5 rounded-2xl border border-white"><i
+                                    data-lucide="check-circle" class="text-amber-600 w-6 h-6 shrink-0"></i>
+                                <div>
+                                    <p class="text-lg font-black text-slate-800">Self Managed</p>
+                                    <p class="text-sm text-slate-500 font-medium">Update services easily.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Challenge -->
+                    <div id="challenge" class="tab-content">
+                        <div
+                            class="flex flex-col md:flex-row justify-between items-start mb-8 pb-8 border-b border-amber-100 gap-6">
+                            <div>
+                                <h2 class="text-3xl md:text-4xl font-black text-slate-900 mb-2 leading-none">$$9/ Mo –
+                                    Growth Challenge</h2>
+                                <p class="text-lg text-amber-600 font-black uppercase tracking-widest">Monthly Goals
+                                    Required:</p>
+                            </div>
+                            <div class="bg-slate-900 p-6 rounded-[2rem] text-center w-full md:w-auto shadow-xl">
+                                <div class="text-4xl font-black text-amber-500">$$9</div>
+                                <div class="text-[10px] font-bold text-slate-500 uppercase mt-1">Reward Price</div>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+                            <div
+                                class="flex items-center gap-4 bg-amber-50/50 p-5 rounded-2xl border border-amber-100/50">
+                                <i data-lucide="clipboard-list" class="text-amber-600 shrink-0"></i><span
+                                    class="text-xl font-bold text-slate-800">30 Digital Bills</span>
+                            </div>
+                            <div
+                                class="flex items-center gap-4 bg-amber-50/50 p-5 rounded-2xl border border-amber-100/50">
+                                <i data-lucide="star" class="text-amber-600 shrink-0"></i><span
+                                    class="text-xl font-bold text-slate-800">30 QTick Reviews</span>
+                            </div>
+                            <div
+                                class="flex items-center gap-4 bg-amber-50/50 p-5 rounded-2xl border border-amber-100/50">
+                                <i data-lucide="instagram" class="text-amber-600 shrink-0"></i><span
+                                    class="text-xl font-bold text-slate-800">20 Media Uploads</span>
+                            </div>
+                            <div
+                                class="flex items-center gap-4 bg-amber-50/50 p-5 rounded-2xl border border-amber-100/50">
+                                <i data-lucide="smartphone" class="text-amber-600 shrink-0"></i><span
+                                    class="text-xl font-bold text-slate-800">Live Booking Link</span>
+                            </div>
+                        </div>
+                        <div
+                            class="p-5 bg-emerald-500/5 border border-emerald-500/20 rounded-2xl flex items-center gap-4">
+                            <i data-lucide="zap" class="text-emerald-500 w-6 h-6 shrink-0"></i>
+                            <p class="text-sm md:text-lg text-emerald-800 font-bold italic">Hit your goals? Keep the
+                                ₹599 price for the next month!</p>
+                        </div>
+                    </div>
+
+                    <!-- Starter Pricing -->
+                    <div id="pricing" class="tab-content">
+                        <div class="flex flex-col md:flex-row justify-between items-center mb-8 gap-4">
+                            <div>
+                                <h2 class="text-2xl md:text-3xl font-black text-slate-900 tracking-tighter">Starter
+                                    Licenses</h2>
+                                <p class="text-sm text-slate-500 font-bold">GST Inclusive ABC Expo Special</p>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                            <div
+                                class="relative p-8 rounded-[2.5rem] border-2 border-slate-100 bg-white/50 text-center flex flex-col items-center justify-center">
+                                <i data-lucide="award" class="mb-4 text-slate-400 w-8 h-8"></i>
+                                <p class="text-xs font-black text-slate-400 uppercase tracking-widest">3 Months</p>
+                                <p class="text-4xl font-black text-slate-800">$$$9</p>
+                            </div>
+                            <div
+                                class="relative p-8 rounded-[2.5rem] border-2 border-amber-500 bg-gradient-to-br from-amber-50 to-white shadow-xl scale-105 z-10 text-center flex flex-col items-center justify-center">
+                                <div
+                                    class="absolute -top-4 left-1/2 -translate-x-1/2 bg-amber-500 text-white text-[10px] font-black uppercase px-5 py-1.5 rounded-full shadow-lg">
+                                    Best Value</div>
+                                <i data-lucide="trophy" class="mb-4 text-amber-500 w-10 h-10"></i>
+                                <p class="text-xs font-black text-slate-400 uppercase tracking-widest">12 Months</p>
+                                <p class="text-4xl md:text-5xl font-black text-amber-600"><span
+                                        class="line-through decoration-4 decoration-current opacity-50">$</span>$$$9</p>
+                                <div
+                                    class="mt-2 px-3 py-1 bg-amber-500/10 rounded-lg border border-amber-500/20 animate-pulse">
+                                    <span class="text-[10px] font-black text-amber-600 uppercase tracking-widest">₹1,000
+                                        Credit Included</span>
+                                </div>
+                            </div>
+                            <div
+                                class="relative p-8 rounded-[2.5rem] border-2 border-slate-100 bg-white/50 text-center flex flex-col items-center justify-center">
+                                <i data-lucide="star" class="mb-4 text-rose-400 w-8 h-8"></i>
+                                <p class="text-xs font-black text-slate-400 uppercase tracking-widest">6 Months</p>
+                                <p class="text-4xl font-black text-slate-800">$$$9</p>
+                            </div>
+                        </div>
+                        <div
+                            class="p-6 rounded-[2rem] bg-gradient-to-r from-amber-600 to-amber-500 text-white shadow-lg flex flex-col md:flex-row items-center gap-6 animate-glow-pulse border border-white/20">
+                            <div
+                                class="w-14 h-14 bg-white/20 backdrop-blur-md rounded-2xl flex items-center justify-center border border-white/30 shrink-0">
+                                <i data-lucide="gift" class="w-8 h-8"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-2xl md:text-3xl font-black tracking-tighter">₹1,000 Marketing Credit
+                                </h3>
+                                <p class="text-amber-50 font-bold opacity-90 leading-tight">FREE Digital Marketing setup
+                                    exclusively for <span class="underline">12 Month Subscriptions</span></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Corporate -->
+                    <div id="corporate" class="tab-content">
+                        <div
+                            class="bg-slate-900 rounded-[3rem] p-10 text-white relative overflow-hidden shadow-2xl border border-amber-500/30">
+                            <div
+                                class="absolute inset-0 bg-gradient-to-br from-amber-500/10 via-transparent to-emerald-500/5 pointer-events-none">
+                            </div>
+                            <div class="relative z-10">
+                                <h2 class="text-3xl md:text-5xl font-black mb-4 text-amber-400 tracking-tighter">
+                                    Corporate Program</h2>
+                                <p class="text-lg text-slate-400 font-medium mb-12 max-w-xl">Centralize your salon chain
+                                    with our enterprise dashboard.</p>
+                                <div class="flex flex-col gap-2 mb-12">
+                                    <span
+                                        class="text-5xl md:text-8xl font-black leading-none tracking-tighter animate-gradient-text"
+                                        style="display: block;">Subscribe More</span>
+                                    <span
+                                        class="text-2xl md:text-4xl font-black text-white/90 italic tracking-tight">Pay
+                                        Less</span>
+                                </div>
+                                <div class="flex flex-col sm:flex-row items-center gap-6">
+                                    <button
+                                        class="inline-flex items-center gap-3 px-8 py-4 bg-amber-500 text-slate-900 rounded-2xl font-black text-lg uppercase tracking-widest hover:bg-amber-400 transition-all shadow-xl animate-glow-pulse">
+                                        <i data-lucide="message-circle" class="w-6 h-6"></i> Talk to our Team
+                                    </button>
+                                    <p class="text-xs text-slate-500 font-bold uppercase tracking-[0.2em]">Priority
+                                        Enterprise Support</p>
+                                </div>
+                            </div>
+                            <div class="absolute bottom-10 right-10 opacity-10 text-amber-500">
+                                <i data-lucide="building-2" class="w-48 h-48"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Lucky Draw -->
+                    <div id="luckydraw" class="tab-content">
+                        <div class="w-full">
+                            <div
+                                class="inline-flex items-center gap-2 px-4 py-1 bg-amber-500 text-white text-xs font-black uppercase rounded-full mb-6 shadow-lg">
+                                <i data-lucide="trophy" class="w-4 h-4"></i> Mega ABC Expo Event
+                            </div>
+                            <h2 class="text-2xl md:text-4xl font-black text-slate-900 mb-4 tracking-tighter">Win
+                                Ultimate Prizes!</h2>
+                            <p class="text-lg md:text-2xl text-slate-600 font-bold mb-10 leading-relaxed">Every 3 hours,
+                                <span class="text-amber-600">5 Lucky winners</span> get selected for special rewards!
+                            </p>
+
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div
+                                    class="bg-gradient-to-br from-purple-600 to-indigo-700 p-6 rounded-[2rem] text-white relative overflow-hidden group shadow-xl transform transition-transform hover:scale-[1.02]">
+                                    <div
+                                        class="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -mr-10 -mt-10 blur-2xl group-hover:scale-150 transition-transform duration-700">
+                                    </div>
+                                    <div class="relative z-10 flex flex-col items-center text-center">
+                                        <div
+                                            class="w-16 h-16 bg-white/20 backdrop-blur-md rounded-2xl flex items-center justify-center mb-4 border border-white/30 shadow-lg animate-bounce">
+                                            <i data-lucide="gem" class="w-8 h-8 text-amber-300"></i>
+                                        </div>
+                                        <h4 class="text-2xl font-black italic tracking-tighter mb-2">Grand Prize</h4>
+                                        <p class="text-indigo-200 font-medium text-sm mb-4">1 Year Premium Suite Access
+                                        </p>
+                                        <div
+                                            class="px-4 py-1.5 bg-white/20 rounded-full text-[10px] font-black uppercase tracking-widest border border-white/30">
+                                            Value: ₹25,000</div>
+                                    </div>
+                                </div>
+
+                                <div
+                                    class="bg-gradient-to-br from-rose-500 to-pink-600 p-6 rounded-[2rem] text-white relative overflow-hidden group shadow-xl transform transition-transform hover:scale-[1.02]">
+                                    <div
+                                        class="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -mr-10 -mt-10 blur-2xl group-hover:scale-150 transition-transform duration-700">
+                                    </div>
+                                    <div class="relative z-10 flex flex-col items-center text-center">
+                                        <div
+                                            class="w-16 h-16 bg-white/20 backdrop-blur-md rounded-2xl flex items-center justify-center mb-4 border border-white/30 shadow-lg animate-pulse">
+                                            <i data-lucide="gift" class="w-8 h-8 text-white"></i>
+                                        </div>
+                                        <h4 class="text-2xl font-black italic tracking-tighter mb-2">Mystery Box</h4>
+                                        <p class="text-rose-100 font-medium text-sm mb-4">Marketing Boost Package</p>
+                                        <div
+                                            class="px-4 py-1.5 bg-white/20 rounded-full text-[10px] font-black uppercase tracking-widest border border-white/30">
+                                            5 Winners / Day</div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Infinite Marquee Client Showcase -->
+                <div class="mt-12 overflow-hidden relative group">
+                    <div class="flex items-center gap-4 mb-4">
+                        <span
+                            class="text-[10px] md:text-xs font-black uppercase text-slate-400 tracking-[0.4em] shrink-0">Trusted
+                            By Industry Leaders:</span>
+                        <div class="h-px w-full bg-slate-200"></div>
+                    </div>
+                    <div class="flex whitespace-nowrap gap-12 animate-scroll-marquee items-center group-hover:pause">
+                        <div
+                            class="flex gap-12 items-center font-black text-lg md:text-3xl italic uppercase tracking-tighter animate-gradient-text">
+                            <span>chillbreeze</span><span>Cabelo</span><span>Shai</span><span>Femina</span><span>GlitZ</span><span>Rubi</span><span>Mano
+                                Beauty House</span><span>Peacock</span><span>Snazzy Scissors</span>
+                        </div>
+                        <div
+                            class="flex gap-12 items-center font-black text-lg md:text-3xl italic uppercase tracking-tighter animate-gradient-text">
+                            <span>chillbreeze</span><span>Cabelo</span><span>Shai</span><span>Femina</span><span>GlitZ</span><span>Rubi</span><span>Mano
+                                Beauty House</span><span>Peacock</span><span>Snazzy Scissors</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Column: Registration Form -->
+        <div
+            class="w-full lg:w-[450px] xl:w-[480px] bg-white border-t-2 lg:border-t-0 lg:border-l border-amber-100 p-8 md:p-12 flex flex-col justify-center relative z-20 shadow-[-30px_0_60px_rgba(0,0,0,0.03)] overflow-y-auto shrink-0">
+            <div id="form-container">
+                <div class="mb-10 text-center lg:text-left">
+
+                    <h3 class="text-2xl md:text-3xl font-black text-slate-900 mb-3 tracking-tighter leading-none">Early
+                        Bird Registration</h3>
+                    <p class="text-base text-slate-500 font-semibold italic leading-snug mb-4">Enter draw & Get Free
+                        Website
+                        Profile!</p>
+
+                </div>
+
+                <form onsubmit="handleFormSubmit(event)" class="space-y-4">
+                    <div class="space-y-3">
+                        <input type="text" name="name" placeholder="Owner Full Name" required
+                            class="w-full px-6 py-4 bg-slate-50 border-2 border-slate-200 rounded-2xl font-bold text-lg focus:ring-4 focus:ring-amber-500/10 focus:border-amber-600 outline-none transition-all shadow-inner">
+                        <input type="tel" name="mobile" placeholder="Mobile Number" required
+                            class="w-full px-6 py-4 bg-slate-50 border-2 border-slate-200 rounded-2xl font-bold text-lg focus:ring-4 focus:ring-amber-500/10 focus:border-amber-600 outline-none transition-all shadow-inner">
+                        <input type="text" name="salonName" placeholder="Salon / Business Name" required
+                            class="w-full px-6 py-4 bg-slate-50 border-2 border-slate-200 rounded-2xl font-bold text-lg focus:ring-4 focus:ring-amber-500/10 focus:border-amber-600 outline-none transition-all shadow-inner">
+                        <input type="text" name="city" placeholder="City" required
+                            class="w-full px-6 py-4 bg-slate-50 border-2 border-slate-200 rounded-2xl font-bold text-lg focus:ring-4 focus:ring-amber-500/10 focus:border-amber-600 outline-none transition-all shadow-inner">
+                        <div class="relative">
+                            <select name="interest"
+                                class="w-full px-6 py-4 bg-slate-50 border-2 border-slate-200 rounded-2xl font-bold text-lg focus:ring-4 focus:ring-amber-500/10 focus:border-amber-600 outline-none transition-all cursor-pointer appearance-none shadow-inner">
+                                <option value="Free Website">Free Website & Profile</option>
+                                <option value="$$9 Challenge">$$9 Challenge Plan</option>
+                                <option value="Starter Plan">Starter Plans</option>
+                                <option value="Corporate Offer">Corporate Offer</option>
+                            </select>
+                            <div class="absolute right-6 top-1/2 -translate-y-1/2 pointer-events-none text-slate-400">
+                                <i data-lucide="chevron-down"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="submit"
+                        class="w-full bg-amber-600 hover:bg-amber-700 text-white py-5 rounded-2xl font-black text-xl shadow-2xl shadow-amber-600/40 flex items-center justify-center gap-3 transition-all mt-4 transform hover:-translate-y-1 active:scale-95">
+                        SECURE MY OFFER <i data-lucide="arrow-right"></i>
+                    </button>
+                </form>
+
+                <div class="mt-10 pt-8 border-t border-slate-100 flex items-center justify-between text-slate-400">
+
+                    <div class="flex items-center gap-2 text-[10px] font-black uppercase tracking-[0.2em]"><i
+                            data-lucide="ticket" class="w-4 h-4 text-amber-500"></i> Lucky Draw</div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Global Footer -->
+    <footer
+        class="bg-amber-950 text-white/30 py-4 px-8 text-[10px] font-black uppercase tracking-[0.4em] flex flex-col md:flex-row justify-between items-center shrink-0 gap-2 relative z-20">
+        <div class="flex flex-col md:flex-row gap-4 md:gap-8 items-center">
+            <span class="flex items-center gap-1 hover:text-white transition-colors cursor-default">✔ UPGRADE
+                ANYTIME</span>
+            <span class="flex items-center gap-1 hover:text-white transition-colors cursor-default">✔ NO HIDDEN
+                FEES</span>
+            <div class="hidden md:flex items-center gap-2 pl-4 border-l border-white/10 group cursor-pointer">
+                <i data-lucide="phone-call" class="w-3.5 h-3.5 text-amber-400"></i>
+                <span
+                    class="text-amber-400 group-hover:text-amber-300 transition-colors lowercase tracking-normal font-bold">Talk
+                    to our team now</span>
+            </div>
+        </div>
+        <div class="flex flex-col items-end gap-1">
+            <div class="text-amber-400 font-black animate-pulse text-center uppercase tracking-widest">
+                Winners Announced Every 3 Hours at the Booth
+            </div>
+            <div class="text-[8px] text-amber-500/40 font-bold uppercase tracking-widest hidden md:block">
+                #abcexpo2026 #aihba #aihbasouthindia #aihbaawards #abcexpo
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Icons
+        lucide.createIcons();
+
+        // Winners Data
+
+
+
+
+
+        // Fixed Tab Switching Logic
+        function switchTab(tabId) {
+            // 1. Manage Content Visibility
+            const contents = document.querySelectorAll('.tab-content');
+            contents.forEach(content => {
+                content.classList.remove('active');
+            });
+            const activeContent = document.getElementById(tabId);
+            if (activeContent) activeContent.classList.add('active');
+
+            // 2. Manage Button Selection State
+            const buttons = document.querySelectorAll('.menu-btn');
+            buttons.forEach(btn => {
+                btn.classList.remove('active');
+            });
+
+            const activeBtn = document.getElementById(`btn-${tabId}`);
+            if (activeBtn) activeBtn.classList.add('active');
+
+            // 3. Re-run Lucide for new icons if any content was added dynamically
+            lucide.createIcons();
+        }
+
+        // Handle Form
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            const formData = new FormData(e.target);
+            const container = document.getElementById('form-container');
+
+            container.innerHTML = `
+                <div class="text-center py-12 flex flex-col items-center">
+                    <div class="w-24 h-24 bg-emerald-500 text-white rounded-full flex items-center justify-center mb-8 shadow-2xl shadow-emerald-500/40 animate-bounce">
+                        <i data-lucide="check-circle" class="w-12 h-12"></i>
+                    </div>
+                    <h3 class="text-4xl font-black text-slate-900 mb-4 tracking-tighter">You're Registered!</h3>
+                    <p class="text-xl text-slate-600 font-medium leading-relaxed mb-10">Our Salon Expert will call you on <span class="font-black text-slate-900 underline decoration-emerald-200">${formData.get('mobile')}</span> for your Free Website setup.</p>
+                    <button onclick="window.location.reload()" class="text-amber-600 font-black text-lg hover:underline underline-offset-8">Register another business</button>
+                </div>
+            `;
+            lucide.createIcons();
+        }
+
+        // Initial setup on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            switchTab('free-website');
+        });
+    </script>
+</body>
+
+</html>
