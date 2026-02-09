@@ -117,6 +117,105 @@
             }
         }
 
+        /* --- Entry Animations --- */
+        @keyframes revealUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideFromTop {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideFromLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-40px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideFromRight {
+            from {
+                opacity: 0;
+                transform: translateX(40px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0) scale(1);
+            }
+
+            50% {
+                transform: translateY(-20px) scale(1.05);
+            }
+        }
+
+        .animate-reveal-up {
+            animation: revealUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        .animate-slide-top {
+            animation: slideFromTop 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        .animate-slide-left {
+            animation: slideFromLeft 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        .animate-slide-right {
+            animation: slideFromRight 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .entry-delay-1 {
+            animation-delay: 0.2s;
+            opacity: 0;
+            animation-fill-mode: forwards;
+        }
+
+        .entry-delay-2 {
+            animation-delay: 0.4s;
+            opacity: 0;
+            animation-fill-mode: forwards;
+        }
+
+        .entry-delay-3 {
+            animation-delay: 0.6s;
+            opacity: 0;
+            animation-fill-mode: forwards;
+        }
+
         .no-scrollbar::-webkit-scrollbar {
             display: none;
         }
@@ -137,13 +236,13 @@
 
         .tab-content.active {
             display: block;
-            animation: tabFadeIn 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            animation: tabFadeIn 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
         }
 
         @keyframes tabFadeIn {
             from {
                 opacity: 0;
-                transform: translateY(10px) scale(0.98);
+                transform: translateY(15px) scale(0.96);
             }
 
             to {
@@ -152,52 +251,270 @@
             }
         }
 
-        /* --- Menu Button Persistence Fixes --- */
+        /* --- Jewel-Tone Tab Styles --- */
+        .tab-menu-container {
+            display: flex;
+            gap: 0.6rem;
+            padding: 0.6rem;
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            border-radius: 1.5rem;
+            margin-bottom: 2rem;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            width: fit-content;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .tab-menu-container::-webkit-scrollbar {
+            display: none;
+        }
+
         .menu-btn {
-            background-color: rgba(255, 255, 255, 0.4);
-            border: 1px solid white;
-            backdrop-filter: blur(4px);
-            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+            padding: 0.9rem 1.6rem;
+            border-radius: 1.1rem;
+            font-size: 1rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #64748b;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            white-space: nowrap;
+            border: 1px solid transparent;
         }
 
         .menu-btn i,
         .menu-btn svg {
-            color: #94a3b8;
-            transition: color 0.3s;
+            width: 1.1rem;
+            height: 1.1rem;
+            transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
         }
 
-        .menu-btn span {
-            color: #94a3b8;
-            opacity: 0.6;
-            transition: all 0.3s;
-        }
-
+        /* --- Active Jewel Themes --- */
         .menu-btn.active {
-            background-color: white !important;
+            background: white;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+            transform: translateY(-2px);
+        }
+
+        /* Theme Accents */
+        #btn-free-website.active {
+            color: #065f46;
+            border-color: #d1fae5;
+        }
+
+        #btn-challenge.active {
+            color: #3730a3;
+            border-color: #e0e7ff;
+        }
+
+        #btn-pricing.active {
+            color: #92400e;
+            border-color: #fef1d1;
+        }
+
+        #btn-corporate.active {
+            color: #1e293b;
+            border-color: #e2e8f0;
+        }
+
+        #btn-luckydraw.active {
+            color: #9f1239;
+            border-color: #ffe4e6;
+        }
+
+        /* --- Premium Micro-Interactions --- */
+        .shine-container {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .shine-sweep {
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transform: skewX(-25deg);
+            transition: none;
+            pointer-events: none;
+            z-index: 5;
+        }
+
+        #content-card:hover .shine-sweep {
+            animation: shine-sweep 1s ease-in-out;
+        }
+
+        @keyframes shine-sweep {
+            100% {
+                left: 200%;
+            }
+        }
+
+        .benefit-box {
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .benefit-box:hover {
+            transform: translateY(-5px) scale(1.02);
+            background: white !important;
+            border-color: #fff !important;
+            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.05);
+        }
+
+        .theme-emerald .benefit-box:hover {
+            box-shadow: 0 10px 40px -10px rgba(5, 150, 105, 0.2) !important;
+        }
+
+        .theme-indigo .benefit-box:hover {
+            box-shadow: 0 10px 40px -10px rgba(79, 70, 229, 0.2) !important;
+        }
+
+        .theme-amber .benefit-box:hover {
+            box-shadow: 0 10px 40px -10px rgba(217, 119, 6, 0.2) !important;
+        }
+
+        .theme-rose .benefit-box:hover {
+            box-shadow: 0 10px 40px -10px rgba(225, 29, 72, 0.2) !important;
+        }
+
+
+        /* Branding & Inputs */
+        @keyframes glint {
+
+            0%,
+            90%,
+            100% {
+                filter: brightness(1) drop-shadow(0 0 0 rgba(251, 191, 36, 0));
+            }
+
+            95% {
+                filter: brightness(1.5) drop-shadow(0 0 10px rgba(251, 191, 36, 0.5));
+            }
+        }
+
+        .brand-glint {
+            animation: glint 5s ease-in-out infinite;
+        }
+
+        .form-input {
+            transition: all 0.3s ease !important;
+        }
+
+        .form-input:focus {
+            background: white !important;
+            box-shadow: 0 0 0 4px rgba(217, 119, 6, 0.1) !important;
             border-color: #d97706 !important;
-            box-shadow: 0 0 30px rgba(245, 158, 11, 0.4) !important;
-            transform: scale(1.1) !important;
-            z-index: 20;
+            transform: translateY(-1px);
+        }
+
+        /* --- Prize Card Specifics --- */
+        .prize-card {
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            z-index: 10;
+        }
+
+        .prize-card:hover {
+            transform: translateY(-10px) scale(1.02);
+        }
+
+        .mystery-wordmark {
+            font-family: 'Inter', sans-serif;
+            font-weight: 900;
+            font-style: italic;
+            letter-spacing: -0.05em;
+            transform: skewX(-5deg);
+        }
+
+        /* Hover States */
+        .menu-btn:not(.active):hover {
+            color: #1e293b;
+            background: rgba(255, 255, 255, 0.6);
+        }
+
+        /* --- Content Card Modernization --- */
+        #content-card {
+            border-top: 5px solid #fde68a;
+            /* Default */
+            transition: border-color 0.6s ease;
+        }
+
+        .theme-emerald {
+            border-top-color: #059669 !important;
+        }
+
+        .theme-indigo {
+            border-top-color: #4f46e5 !important;
+        }
+
+        .theme-amber {
+            border-top-color: #d97706 !important;
+        }
+
+        .theme-slate {
+            border-top-color: #475569 !important;
+        }
+
+        .theme-rose {
+            border-top-color: #e11d48 !important;
+        }
+
+        /* Jewel-Tone Text Accents */
+        .text-emerald-jewel {
+            color: #065f46;
+        }
+
+        .text-indigo-jewel {
+            color: #3730a3;
+        }
+
+        .text-amber-jewel {
+            color: #92400e;
+        }
+
+        .text-rose-jewel {
+            color: #9f1239;
+        }
+
+        .bg-rose-jewel {
+            background-color: #9f1239;
+        }
+
+        .bg-emerald-jewel {
+            background-color: #065f46;
+        }
+
+        .bg-indigo-jewel {
+            background-color: #3730a3;
+        }
+
+        .bg-amber-jewel {
+            background-color: #92400e;
+        }
+
+        /* Animation */
+        @keyframes icon-bounce {
+
+            0%,
+            100% {
+                transform: scale(1) translateY(0);
+            }
+
+            50% {
+                transform: scale(1.2) translateY(-3px);
+            }
         }
 
         .menu-btn.active i,
         .menu-btn.active svg {
-            color: #d97706 !important;
-        }
-
-        .menu-btn.active span {
-            color: #0f172a !important;
-            opacity: 1 !important;
-        }
-
-        .menu-btn:not(.active):hover {
-            background-color: rgba(255, 255, 255, 0.8);
-            transform: translateY(-2px);
-        }
-
-        .menu-btn:not(.active):hover i,
-        .menu-btn:not(.active):hover svg {
-            color: #d97706;
+            animation: icon-bounce 1.5s ease-in-out infinite;
         }
     </style>
 </head>
@@ -207,21 +524,21 @@
     <!-- Background Decoration -->
     <div class="fixed inset-0 pointer-events-none overflow-hidden z-0">
         <div
-            class="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-amber-200/20 blur-[120px] rounded-full animate-blob">
+            class="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-amber-200/20 blur-[120px] rounded-full animate-float">
         </div>
-        <div
-            class="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] bg-rose-200/20 blur-[120px] rounded-full animate-blob animation-delay-2000">
+        <div class="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] bg-rose-200/20 blur-[120px] rounded-full animate-float"
+            style="animation-delay: -3s;">
         </div>
     </div>
 
     <!-- Header -->
     <header
-        class="bg-white/60 backdrop-blur-xl border-b border-amber-100 px-4 md:px-8 py-3 md:py-4 flex items-center justify-between shrink-0 sticky top-0 z-50 shadow-sm">
+        class="bg-white/60 backdrop-blur-xl border-b border-amber-100 px-4 md:px-8 py-3 md:py-4 flex items-center justify-between shrink-0 sticky top-0 z-50 shadow-sm animate-slide-top">
         <div class="flex items-center gap-2 md:gap-3 flex-wrap">
-            <img src="QTick-Logo.png" alt="QTick Logo" class="h-8 md:h-10 w-auto" />
+            <img src="QTick-Logo.png" alt="QTick Logo" class="h-8 md:h-10 w-auto brand-glint" />
             <span class="font-black text-lg md:text-xl tracking-tight text-slate-800">QTick</span>
             <span class="font-black text-lg md:text-xl tracking-tight text-amber-600">Participating in</span>
-            <img src="Abc-logo.PNG" alt="ABC Expo Logo" class="h-10 md:h-12 w-auto object-contain" />
+            <img src="Abc-logo.PNG" alt="ABC Expo Logo" class="h-10 md:h-12 w-auto object-contain brand-glint" />
             <span class="font-black text-lg md:text-xl tracking-tight text-amber-600">ABC Expo 2026</span>
             <a href="https://www.instagram.com/aihbasouthindia/" target="_blank"
                 class="inline-flex items-center gap-1 text-slate-500 font-bold text-xs hover:text-amber-600 transition-colors ml-2">
@@ -256,55 +573,46 @@
     <main class="flex-1 flex flex-col lg:flex-row overflow-y-auto lg:overflow-hidden relative z-10">
 
         <!-- Left Column: Content & Navigation -->
-        <div class="flex-1 overflow-y-auto p-4 md:p-8 lg:p-12 flex flex-col">
+        <div class="flex-1 overflow-y-auto p-4 md:p-8 lg:p-12 flex flex-col animate-slide-left">
             <div class="max-w-4xl mx-auto w-full">
 
 
-                <h1 class="text-3xl md:text-5xl font-black text-slate-900 leading-[0.95] tracking-tighter mb-4">
+                <h1
+                    class="text-3xl md:text-5xl font-black text-slate-900 leading-[0.95] tracking-tighter mb-4 animate-reveal-up entry-delay-1">
                     Welcome to QTick at ABC Expo<br />
                     <span class="text-amber-600">Avail Exclusive Offers.</span>
                 </h1>
 
-                <!-- CIRCULAR ORBIT MENU -->
-                <div class="relative mb-12 py-6">
-                    <div class="absolute inset-0 flex items-center justify-center opacity-10">
-                        <div
-                            class="w-full max-w-[450px] aspect-square rounded-full border-2 border-dashed border-amber-400 animate-spin-slow">
-                        </div>
-                    </div>
-
-                    <div class="flex flex-wrap justify-center items-center gap-4 md:gap-8 relative">
-                        <button onclick="switchTab('free-website')" id="btn-free-website"
-                            class="menu-btn active relative w-20 h-20 md:w-24 md:h-24 rounded-full flex flex-col items-center justify-center z-10">
-                            <i data-lucide="globe" class="w-6 h-6 md:w-8 md:h-8"></i>
-                            <span class="mt-1 text-[8px] md:text-[9px] font-black uppercase">Free Site</span>
-                        </button>
-                        <button onclick="switchTab('challenge')" id="btn-challenge"
-                            class="menu-btn relative w-20 h-20 md:w-24 md:h-24 rounded-full flex flex-col items-center justify-center z-10">
-                            <i data-lucide="trending-up" class="w-6 h-6 md:w-8 md:h-8"></i>
-                            <span class="mt-1 text-[8px] md:text-[9px] font-black uppercase">$$9 Plan</span>
-                        </button>
-                        <button onclick="switchTab('pricing')" id="btn-pricing"
-                            class="menu-btn relative w-20 h-20 md:w-24 md:h-24 rounded-full flex flex-col items-center justify-center z-10">
-                            <i data-lucide="gem" class="w-6 h-6 md:w-8 md:h-8"></i>
-                            <span class="mt-1 text-[8px] md:text-[9px] font-black uppercase">Starter</span>
-                        </button>
-                        <button onclick="switchTab('corporate')" id="btn-corporate"
-                            class="menu-btn relative w-20 h-20 md:w-24 md:h-24 rounded-full flex flex-col items-center justify-center z-10">
-                            <i data-lucide="building-2" class="w-6 h-6 md:w-8 md:h-8"></i>
-                            <span class="mt-1 text-[8px] md:text-[9px] font-black uppercase">Corporate</span>
-                        </button>
-                        <button onclick="switchTab('luckydraw')" id="btn-luckydraw"
-                            class="menu-btn relative w-20 h-20 md:w-24 md:h-24 rounded-full flex flex-col items-center justify-center z-10">
-                            <i data-lucide="ticket" class="w-6 h-6 md:w-8 md:h-8"></i>
-                            <span class="mt-1 text-[8px] md:text-[9px] font-black uppercase">Lucky Draw</span>
-                        </button>
-                    </div>
+                <!-- CLEAN TAB MENU -->
+                <div class="tab-menu-container no-scrollbar animate-reveal-up entry-delay-2">
+                    <button onclick="switchTab('free-website')" id="btn-free-website" class="menu-btn active">
+                        <i data-lucide="globe"></i>
+                        <span>Free Site</span>
+                    </button>
+                    <button onclick="switchTab('challenge')" id="btn-challenge" class="menu-btn">
+                        <i data-lucide="trending-up"></i>
+                        <span>$$9 Plan</span>
+                    </button>
+                    <button onclick="switchTab('pricing')" id="btn-pricing" class="menu-btn">
+                        <i data-lucide="gem"></i>
+                        <span>Starter</span>
+                    </button>
+                    <button onclick="switchTab('corporate')" id="btn-corporate" class="menu-btn">
+                        <i data-lucide="building-2"></i>
+                        <span>Corporate</span>
+                    </button>
+                    <button onclick="switchTab('luckydraw')" id="btn-luckydraw" class="menu-btn">
+                        <i data-lucide="ticket"></i>
+                        <span>Lucky Draw</span>
+                    </button>
                 </div>
 
                 <!-- Content Area Glass Card -->
-                <div
-                    class="bg-white/70 backdrop-blur-2xl border border-white rounded-[2.5rem] p-6 md:p-10 shadow-2xl min-h-[480px] flex flex-col justify-center relative overflow-hidden">
+                <div id="content-card"
+                    class="bg-white/70 backdrop-blur-2xl border border-white rounded-[2.5rem] p-6 md:p-10 shadow-2xl min-h-[480px] flex flex-col justify-center relative overflow-hidden theme-emerald shine-container">
+
+                    <!-- Shine Effect Overlay -->
+                    <div class="shine-sweep"></div>
 
                     <!-- Free Website -->
                     <div id="free-website" class="tab-content active">
@@ -317,40 +625,40 @@
                                 </div>
                                 <h2 class="text-2xl md:text-4xl font-black text-slate-900 mb-3 tracking-tighter">
                                     Register & Get Free Website</h2>
-                                <p class="text-lg md:text-2xl text-amber-600 font-black italic">Clients see you online
-                                    instantly</p>
+                                <p class="text-lg md:text-2xl text-emerald-jewel font-black italic">Clients see you
+                                    online instantly</p>
                             </div>
-                            <div
-                                class="bg-amber-600 text-white px-8 py-5 rounded-[2rem] flex flex-col items-center justify-center shrink-0 shadow-xl">
+                            <div class="bg-emerald-jewel text-white px-8 py-5 rounded-[2rem] flex flex-col items-center justify-center shrink-0 shadow-xl"
+                                style="background-color: #065f46;">
                                 <span class="text-[10px] font-bold uppercase tracking-[0.2em] mb-1 opacity-80">Setup
                                     Cost</span>
                                 <span class="text-5xl font-black tracking-tighter">FREE</span>
                             </div>
                         </div>
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            <div class="flex gap-4 bg-white/50 p-5 rounded-2xl border border-white"><i
-                                    data-lucide="mouse-pointer-2" class="text-amber-600 w-6 h-6 shrink-0"></i>
+                            <div class="flex gap-4 bg-white/50 p-5 rounded-2xl border border-white benefit-box"><i
+                                    data-lucide="mouse-pointer-2" class="text-emerald-jewel w-6 h-6 shrink-0"></i>
                                 <div>
                                     <p class="text-lg font-black text-slate-800">Local Visibility</p>
                                     <p class="text-sm text-slate-500 font-medium">Rank on Google locally.</p>
                                 </div>
                             </div>
-                            <div class="flex gap-4 bg-white/50 p-5 rounded-2xl border border-white"><i
-                                    data-lucide="smartphone" class="text-amber-600 w-6 h-6 shrink-0"></i>
+                            <div class="flex gap-4 bg-white/50 p-5 rounded-2xl border border-white benefit-box"><i
+                                    data-lucide="smartphone" class="text-emerald-jewel w-6 h-6 shrink-0"></i>
                                 <div>
                                     <p class="text-lg font-black text-slate-800">Mobile Ready</p>
                                     <p class="text-sm text-slate-500 font-medium">One-tap booking UI.</p>
                                 </div>
                             </div>
-                            <div class="flex gap-4 bg-white/50 p-5 rounded-2xl border border-white"><i
-                                    data-lucide="globe" class="text-amber-600 w-6 h-6 shrink-0"></i>
+                            <div class="flex gap-4 bg-white/50 p-5 rounded-2xl border border-white benefit-box"><i
+                                    data-lucide="globe" class="text-emerald-jewel w-6 h-6 shrink-0"></i>
                                 <div>
                                     <p class="text-lg font-black text-slate-800">Digital Identity</p>
                                     <p class="text-sm text-slate-500 font-medium">Professional Salon URL.</p>
                                 </div>
                             </div>
-                            <div class="flex gap-4 bg-white/50 p-5 rounded-2xl border border-white"><i
-                                    data-lucide="check-circle" class="text-amber-600 w-6 h-6 shrink-0"></i>
+                            <div class="flex gap-4 bg-white/50 p-5 rounded-2xl border border-white benefit-box"><i
+                                    data-lucide="check-circle" class="text-emerald-jewel w-6 h-6 shrink-0"></i>
                                 <div>
                                     <p class="text-lg font-black text-slate-800">Self Managed</p>
                                     <p class="text-sm text-slate-500 font-medium">Update services easily.</p>
@@ -366,33 +674,33 @@
                             <div>
                                 <h2 class="text-3xl md:text-4xl font-black text-slate-900 mb-2 leading-none">$$9/ Mo –
                                     Growth Challenge</h2>
-                                <p class="text-lg text-amber-600 font-black uppercase tracking-widest">Monthly Goals
+                                <p class="text-lg text-indigo-jewel font-black uppercase tracking-widest">Monthly Goals
                                     Required:</p>
                             </div>
                             <div class="bg-slate-900 p-6 rounded-[2rem] text-center w-full md:w-auto shadow-xl">
-                                <div class="text-4xl font-black text-amber-500">$$9</div>
+                                <div class="text-4xl font-black text-indigo-400">$$9</div>
                                 <div class="text-[10px] font-bold text-slate-500 uppercase mt-1">Reward Price</div>
                             </div>
                         </div>
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
                             <div
-                                class="flex items-center gap-4 bg-amber-50/50 p-5 rounded-2xl border border-amber-100/50">
-                                <i data-lucide="clipboard-list" class="text-amber-600 shrink-0"></i><span
+                                class="flex items-center gap-4 bg-amber-50/50 p-5 rounded-2xl border border-amber-100/50 benefit-box">
+                                <i data-lucide="clipboard-list" class="text-indigo-jewel shrink-0"></i><span
                                     class="text-xl font-bold text-slate-800">30 Digital Bills</span>
                             </div>
                             <div
-                                class="flex items-center gap-4 bg-amber-50/50 p-5 rounded-2xl border border-amber-100/50">
-                                <i data-lucide="star" class="text-amber-600 shrink-0"></i><span
+                                class="flex items-center gap-4 bg-amber-50/50 p-5 rounded-2xl border border-amber-100/50 benefit-box">
+                                <i data-lucide="star" class="text-indigo-jewel shrink-0"></i><span
                                     class="text-xl font-bold text-slate-800">30 QTick Reviews</span>
                             </div>
                             <div
-                                class="flex items-center gap-4 bg-amber-50/50 p-5 rounded-2xl border border-amber-100/50">
-                                <i data-lucide="instagram" class="text-amber-600 shrink-0"></i><span
+                                class="flex items-center gap-4 bg-amber-50/50 p-5 rounded-2xl border border-amber-100/50 benefit-box">
+                                <i data-lucide="instagram" class="text-indigo-jewel shrink-0"></i><span
                                     class="text-xl font-bold text-slate-800">20 Media Uploads</span>
                             </div>
                             <div
-                                class="flex items-center gap-4 bg-amber-50/50 p-5 rounded-2xl border border-amber-100/50">
-                                <i data-lucide="smartphone" class="text-amber-600 shrink-0"></i><span
+                                class="flex items-center gap-4 bg-amber-50/50 p-5 rounded-2xl border border-amber-100/50 benefit-box">
+                                <i data-lucide="smartphone" class="text-indigo-jewel shrink-0"></i><span
                                     class="text-xl font-bold text-slate-800">Live Booking Link</span>
                             </div>
                         </div>
@@ -415,19 +723,19 @@
                         </div>
                         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
                             <div
-                                class="relative p-8 rounded-[2.5rem] border-2 border-slate-100 bg-white/50 text-center flex flex-col items-center justify-center">
+                                class="relative p-8 rounded-[2.5rem] border-2 border-slate-100 bg-white/50 text-center flex flex-col items-center justify-center benefit-box">
                                 <i data-lucide="award" class="mb-4 text-slate-400 w-8 h-8"></i>
                                 <p class="text-xs font-black text-slate-400 uppercase tracking-widest">3 Months</p>
                                 <p class="text-4xl font-black text-slate-800">$$$9</p>
                             </div>
                             <div
-                                class="relative p-8 rounded-[2.5rem] border-2 border-amber-500 bg-gradient-to-br from-amber-50 to-white shadow-xl scale-105 z-10 text-center flex flex-col items-center justify-center">
+                                class="relative p-8 rounded-[2.5rem] border-2 border-amber-500 bg-gradient-to-br from-amber-50 to-white shadow-xl scale-105 z-10 text-center flex flex-col items-center justify-center benefit-box">
                                 <div
                                     class="absolute -top-4 left-1/2 -translate-x-1/2 bg-amber-500 text-white text-[10px] font-black uppercase px-5 py-1.5 rounded-full shadow-lg">
                                     Best Value</div>
                                 <i data-lucide="trophy" class="mb-4 text-amber-500 w-10 h-10"></i>
                                 <p class="text-xs font-black text-slate-400 uppercase tracking-widest">12 Months</p>
-                                <p class="text-4xl md:text-5xl font-black text-amber-600"><span
+                                <p class="text-4xl md:text-5xl font-black text-amber-jewel"><span
                                         class="line-through decoration-4 decoration-current opacity-50">$</span>$$$9</p>
                                 <div
                                     class="mt-2 px-3 py-1 bg-amber-500/10 rounded-lg border border-amber-500/20 animate-pulse">
@@ -436,7 +744,7 @@
                                 </div>
                             </div>
                             <div
-                                class="relative p-8 rounded-[2.5rem] border-2 border-slate-100 bg-white/50 text-center flex flex-col items-center justify-center">
+                                class="relative p-8 rounded-[2.5rem] border-2 border-slate-100 bg-white/50 text-center flex flex-col items-center justify-center benefit-box">
                                 <i data-lucide="star" class="mb-4 text-rose-400 w-8 h-8"></i>
                                 <p class="text-xs font-black text-slate-400 uppercase tracking-widest">6 Months</p>
                                 <p class="text-4xl font-black text-slate-800">$$$9</p>
@@ -494,51 +802,59 @@
 
                     <!-- Lucky Draw -->
                     <div id="luckydraw" class="tab-content">
-                        <div class="w-full">
+                        <div class="w-full flex flex-col items-center md:items-start text-center md:text-left">
                             <div
-                                class="inline-flex items-center gap-2 px-4 py-1 bg-amber-500 text-white text-xs font-black uppercase rounded-full mb-6 shadow-lg">
+                                class="inline-flex items-center gap-2 px-4 py-1.5 bg-rose-jewel text-white text-xs font-black uppercase rounded-full mb-6 shadow-lg">
                                 <i data-lucide="trophy" class="w-4 h-4"></i> Mega ABC Expo Event
                             </div>
-                            <h2 class="text-2xl md:text-4xl font-black text-slate-900 mb-4 tracking-tighter">Win
+                            <h2 class="text-3xl md:text-5xl font-black text-slate-900 mb-4 tracking-tighter">Win
                                 Ultimate Prizes!</h2>
-                            <p class="text-lg md:text-2xl text-slate-600 font-bold mb-10 leading-relaxed">Every 3 hours,
-                                <span class="text-amber-600">5 Lucky winners</span> get selected for special rewards!
+                            <p class="text-lg md:text-2xl text-slate-600 font-bold mb-10 leading-relaxed max-w-2xl">
+                                Every
+                                3 hours,
+                                <span class="text-rose-jewel uppercase underline decoration-rose-200">5 Lucky
+                                    winners</span> get selected for special
+                                rewards!
                             </p>
 
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 px-2">
+
+                                <!-- Grand Prize (Vibrant Indigo) -->
                                 <div
-                                    class="bg-gradient-to-br from-purple-600 to-indigo-700 p-6 rounded-[2rem] text-white relative overflow-hidden group shadow-xl transform transition-transform hover:scale-[1.02]">
+                                    class="bg-gradient-to-br from-indigo-600 to-purple-700 p-8 rounded-[3rem] text-white relative overflow-hidden shadow-2xl prize-card group shadow-indigo-500/20">
                                     <div
-                                        class="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -mr-10 -mt-10 blur-2xl group-hover:scale-150 transition-transform duration-700">
+                                        class="absolute top-0 right-0 w-48 h-48 bg-white/10 rounded-full -mr-20 -mt-20 blur-3xl group-hover:scale-150 transition-transform duration-700">
                                     </div>
                                     <div class="relative z-10 flex flex-col items-center text-center">
                                         <div
-                                            class="w-16 h-16 bg-white/20 backdrop-blur-md rounded-2xl flex items-center justify-center mb-4 border border-white/30 shadow-lg animate-bounce">
-                                            <i data-lucide="gem" class="w-8 h-8 text-amber-300"></i>
+                                            class="w-20 h-20 bg-white/20 backdrop-blur-md rounded-3xl flex items-center justify-center mb-6 border border-white/30 shadow-xl relative animate-bounce">
+                                            <i data-lucide="gem" class="w-10 h-10 text-amber-300"></i>
                                         </div>
-                                        <h4 class="text-2xl font-black italic tracking-tighter mb-2">Grand Prize</h4>
-                                        <p class="text-indigo-200 font-medium text-sm mb-4">1 Year Premium Suite Access
-                                        </p>
+                                        <h4 class="text-3xl font-black italic tracking-tighter mb-2 mystery-wordmark">
+                                            Grand Prize</h4>
+                                        <p class="text-indigo-50 font-bold text-lg mb-6">1 Year Premium Suite Access</p>
                                         <div
-                                            class="px-4 py-1.5 bg-white/20 rounded-full text-[10px] font-black uppercase tracking-widest border border-white/30">
+                                            class="px-6 py-2 bg-white/20 rounded-full text-xs font-black uppercase tracking-widest border border-white/30">
                                             Value: ₹25,000</div>
                                     </div>
                                 </div>
 
+                                <!-- Mystery Box (Rose) -->
                                 <div
-                                    class="bg-gradient-to-br from-rose-500 to-pink-600 p-6 rounded-[2rem] text-white relative overflow-hidden group shadow-xl transform transition-transform hover:scale-[1.02]">
+                                    class="bg-gradient-to-br from-rose-500 to-pink-600 p-8 rounded-[3rem] text-white relative overflow-hidden shadow-2xl prize-card group">
                                     <div
-                                        class="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -mr-10 -mt-10 blur-2xl group-hover:scale-150 transition-transform duration-700">
+                                        class="absolute top-0 right-0 w-48 h-48 bg-white/10 rounded-full -mr-20 -mt-20 blur-3xl group-hover:scale-150 transition-transform duration-700">
                                     </div>
                                     <div class="relative z-10 flex flex-col items-center text-center">
                                         <div
-                                            class="w-16 h-16 bg-white/20 backdrop-blur-md rounded-2xl flex items-center justify-center mb-4 border border-white/30 shadow-lg animate-pulse">
-                                            <i data-lucide="gift" class="w-8 h-8 text-white"></i>
+                                            class="w-20 h-20 bg-white/20 backdrop-blur-md rounded-3xl flex items-center justify-center mb-6 border border-white/30 shadow-xl animate-pulse">
+                                            <i data-lucide="gift" class="w-10 h-10 text-white"></i>
                                         </div>
-                                        <h4 class="text-2xl font-black italic tracking-tighter mb-2">Mystery Box</h4>
-                                        <p class="text-rose-100 font-medium text-sm mb-4">Marketing Boost Package</p>
+                                        <h4 class="text-3xl font-black italic tracking-tighter mb-2 mystery-wordmark">
+                                            Mystery Box</h4>
+                                        <p class="text-rose-50 font-bold text-lg mb-6">Marketing Boost Package</p>
                                         <div
-                                            class="px-4 py-1.5 bg-white/20 rounded-full text-[10px] font-black uppercase tracking-widest border border-white/30">
+                                            class="px-6 py-2 bg-white/20 rounded-full text-xs font-black uppercase tracking-widest border border-white/30">
                                             5 Winners / Day</div>
                                     </div>
                                 </div>
@@ -576,7 +892,7 @@
 
         <!-- Right Column: Registration Form -->
         <div
-            class="w-full lg:w-[450px] xl:w-[480px] bg-white border-t-2 lg:border-t-0 lg:border-l border-amber-100 p-8 md:p-12 flex flex-col justify-center relative z-20 shadow-[-30px_0_60px_rgba(0,0,0,0.03)] overflow-y-auto shrink-0">
+            class="w-full lg:w-[450px] xl:w-[480px] bg-white border-t-2 lg:border-t-0 lg:border-l border-amber-100 p-8 md:p-12 flex flex-col justify-center relative z-20 shadow-[-30px_0_60px_rgba(0,0,0,0.03)] overflow-y-auto shrink-0 animate-slide-right entry-delay-1">
             <div id="form-container">
                 <div class="mb-10 text-center lg:text-left">
 
@@ -591,13 +907,13 @@
                 <form onsubmit="handleFormSubmit(event)" class="space-y-4">
                     <div class="space-y-3">
                         <input type="text" name="name" placeholder="Owner Full Name" required
-                            class="w-full px-6 py-4 bg-slate-50 border-2 border-slate-200 rounded-2xl font-bold text-lg focus:ring-4 focus:ring-amber-500/10 focus:border-amber-600 outline-none transition-all shadow-inner">
+                            class="w-full px-6 py-4 bg-slate-50 border-2 border-slate-200 rounded-2xl font-bold text-lg focus:ring-4 focus:ring-amber-500/10 focus:border-amber-600 outline-none transition-all shadow-inner form-input">
                         <input type="tel" name="mobile" placeholder="Mobile Number" required
-                            class="w-full px-6 py-4 bg-slate-50 border-2 border-slate-200 rounded-2xl font-bold text-lg focus:ring-4 focus:ring-amber-500/10 focus:border-amber-600 outline-none transition-all shadow-inner">
+                            class="w-full px-6 py-4 bg-slate-50 border-2 border-slate-200 rounded-2xl font-bold text-lg focus:ring-4 focus:ring-amber-500/10 focus:border-amber-600 outline-none transition-all shadow-inner form-input">
                         <input type="text" name="salonName" placeholder="Salon / Business Name" required
-                            class="w-full px-6 py-4 bg-slate-50 border-2 border-slate-200 rounded-2xl font-bold text-lg focus:ring-4 focus:ring-amber-500/10 focus:border-amber-600 outline-none transition-all shadow-inner">
+                            class="w-full px-6 py-4 bg-slate-50 border-2 border-slate-200 rounded-2xl font-bold text-lg focus:ring-4 focus:ring-amber-500/10 focus:border-amber-600 outline-none transition-all shadow-inner form-input">
                         <input type="text" name="city" placeholder="City" required
-                            class="w-full px-6 py-4 bg-slate-50 border-2 border-slate-200 rounded-2xl font-bold text-lg focus:ring-4 focus:ring-amber-500/10 focus:border-amber-600 outline-none transition-all shadow-inner">
+                            class="w-full px-6 py-4 bg-slate-50 border-2 border-slate-200 rounded-2xl font-bold text-lg focus:ring-4 focus:ring-amber-500/10 focus:border-amber-600 outline-none transition-all shadow-inner form-input">
                         <div class="relative">
                             <select name="interest"
                                 class="w-full px-6 py-4 bg-slate-50 border-2 border-slate-200 rounded-2xl font-bold text-lg focus:ring-4 focus:ring-amber-500/10 focus:border-amber-600 outline-none transition-all cursor-pointer appearance-none shadow-inner">
@@ -680,7 +996,19 @@
             const activeBtn = document.getElementById(`btn-${tabId}`);
             if (activeBtn) activeBtn.classList.add('active');
 
-            // 3. Re-run Lucide for new icons if any content was added dynamically
+            // 3. Dynamic Theme Shifting on Content Card
+            const contentCard = document.getElementById('content-card');
+            contentCard.classList.remove('theme-emerald', 'theme-indigo', 'theme-amber', 'theme-slate', 'theme-rose');
+
+            switch (tabId) {
+                case 'free-website': contentCard.classList.add('theme-emerald'); break;
+                case 'challenge': contentCard.classList.add('theme-indigo'); break;
+                case 'pricing': contentCard.classList.add('theme-amber'); break;
+                case 'corporate': contentCard.classList.add('theme-slate'); break;
+                case 'luckydraw': contentCard.classList.add('theme-rose'); break;
+            }
+
+            // 4. Re-run Lucide for new icons if any content was added dynamically
             lucide.createIcons();
         }
 
