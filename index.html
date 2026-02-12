@@ -1242,7 +1242,7 @@
         }
 
         // Handle Form
-        // Handle Form
+
         async function handleFormSubmit(e) {
             e.preventDefault();
             const submitBtn = e.target.querySelector('button[type="submit"]');
@@ -1254,19 +1254,22 @@
             lucide.createIcons();
 
             const formData = new FormData(e.target);
-            const name = formData.get('ownerName');
+            // Corrected mappings based on HTML name attributes
+            const name = formData.get('name');
             const mobile = formData.get('mobile');
-            const businessName = formData.get('businessName');
+            const businessName = formData.get('salonName'); // Mapped from name="salonName"
             const city = formData.get('city');
-            const plan = formData.get('plan');
+            const plan = formData.get('interest'); // Mapped from name="interest"
 
             // Concatenate message
-            const concatenatedMessage = `Business: ${businessName} | City: ${city} | Plan: ${plan}`;
+            // Concatenate message with Mobile included
+            const concatenatedMessage = `Business: ${businessName} | City: ${city} | Plan: ${plan} | Mobile: ${mobile}`;
 
             const baseUrl = 'https://api.qa.qtick.co/web/v2/add-biz';
             const url = new URL(baseUrl);
             url.searchParams.append('name', name);
-            url.searchParams.append('email', mobile); // Mapping mobile to email param as requested
+            // Email format requirement: phonenumber@gmail.com
+            url.searchParams.append('email', `${mobile}@gmail.com`);
             url.searchParams.append('message', concatenatedMessage);
 
             try {
