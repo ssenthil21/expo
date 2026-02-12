@@ -5,6 +5,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>QTick Suite | ABC Expo 2026 Special</title>
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7L33WE0WWW"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-7L33WE0WWW');
+    </script>
     <meta name="description"
         content="Visit QTick Suite at ABC Expo 2026! Get your Free Salon Website and win prizes. #abcexpo2026 #aihba #aihbasouthindia #aihbaawards #abcexpo">
     <meta name="keywords"
@@ -540,6 +549,125 @@
         .menu-btn.active svg {
             animation: icon-bounce 1.5s ease-in-out infinite;
         }
+
+        @media (max-width: 768px) {
+
+            /* Force 2-row layout for tab menu (5 items: 3 top, 2 bottom) */
+            .tab-menu-container {
+                justify-content: center !important;
+                padding: 0.5rem !important;
+                gap: 0.5rem !important;
+            }
+
+            .menu-btn {
+                flex: 0 0 30% !important;
+                /* Forces 3 items per row roughly */
+                justify-content: center;
+                padding: 0.6rem 0.2rem !important;
+                font-size: 0.7rem !important;
+                flex-direction: column;
+                /* Stack icon and text for compactness */
+                gap: 0.2rem !important;
+            }
+
+            .tab-content {
+                display: block !important;
+                background: white;
+                border: 1px solid #e2e8f0;
+                border-radius: 1.5rem;
+                padding: 1.5rem;
+                margin-bottom: 2rem;
+                box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+                opacity: 1 !important;
+                transform: none !important;
+                scroll-margin-top: 220px;
+                position: relative;
+                overflow: hidden;
+            }
+
+            /* Theme accents */
+            #free-website.tab-content {
+                border-top: 4px solid #10b981;
+            }
+
+            #challenge.tab-content {
+                border-top: 4px solid #6366f1;
+            }
+
+            #pricing.tab-content {
+                border-top: 4px solid #f59e0b;
+            }
+
+            #corporate.tab-content {
+                border-top: 4px solid #64748b;
+            }
+
+            #luckydraw.tab-content {
+                border-top: 4px solid #f43f5e;
+            }
+
+            /* Hide desktop decorations on mobile content */
+            #content-card {
+                background: transparent !important;
+                border: none !important;
+                box-shadow: none !important;
+                padding: 0 !important;
+            }
+
+            .tab-menu-container {
+                background: rgba(255, 255, 255, 0.95);
+                backdrop-filter: blur(10px);
+                border-bottom: 1px solid #e2e8f0;
+                border-bottom: 8px solid #f1f5f9;
+                /* Separator */
+                padding-bottom: 2rem;
+                border-radius: 0 0 1rem 1rem;
+                width: 100%;
+                max-width: 100%;
+                margin-left: 0;
+                margin-right: 0;
+                padding: 0.8rem;
+                box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            }
+
+            main {
+                padding-bottom: 80px;
+                /* Space for fixed footer */
+            }
+
+        }
+
+        /* Global Animation */
+        @keyframes sparkle-run {
+            0% {
+                transform: translateX(-100%);
+            }
+
+            100% {
+                transform: translateX(100%);
+            }
+        }
+
+        .animate-sparkle-run {
+            animation: sparkle-run 2.5s linear infinite;
+            width: 200%;
+        }
+
+        @keyframes attention-pulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.02);
+            }
+        }
+
+        .animate-attention {
+            animation: attention-pulse 2s ease-in-out infinite;
+        }
     </style>
 </head>
 
@@ -557,20 +685,52 @@
 
     <!-- Header -->
     <header
-        class="bg-white/60 backdrop-blur-xl border-b border-amber-100 px-4 md:px-8 py-3 md:py-4 flex items-center justify-between shrink-0 sticky top-0 z-50 shadow-sm animate-slide-top">
+        class="bg-white/80 backdrop-blur-xl border-b border-amber-100 px-4 md:px-8 py-3 md:py-4 flex flex-col md:flex-row items-center justify-between shrink-0 sticky top-0 z-50 shadow-sm animate-slide-top">
         <div class="flex items-center gap-2 md:gap-3 flex-wrap">
             <img src="QTick-Logo.png" alt="QTick Logo" class="h-8 md:h-10 w-auto brand-glint" />
             <span class="font-black text-lg md:text-xl tracking-tight text-slate-800">QTick</span>
             <span class="font-black text-lg md:text-xl tracking-tight text-amber-600">Participating in</span>
-            <img src="Abc-logo.PNG" alt="ABC Expo Logo" class="h-10 md:h-12 w-auto object-contain brand-glint" />
-            <span class="font-black text-lg md:text-xl tracking-tight text-amber-600">ABC Expo 2026</span>
-            <a href="https://www.instagram.com/aihbasouthindia/" target="_blank"
-                class="inline-flex items-center gap-1 text-slate-500 font-bold text-xs hover:text-amber-600 transition-colors ml-2">
-                <i data-lucide="info" class="w-3 h-3"></i> Know more
+            <a href="https://www.instagram.com/aihbasouthindia/" target="_blank" class="contents">
+                <img src="Abc-logo.PNG" alt="ABC Expo Logo" class="h-10 md:h-12 w-auto object-contain brand-glint" />
             </a>
+            <span class="font-black text-lg md:text-xl tracking-tight text-amber-600">ABC Expo 2026</span>
+
+            <!-- Desktop Subhead -->
+            <div class="hidden md:block ml-6 pl-6 relative group">
+                <div
+                    class="absolute inset-0 bg-gradient-to-r from-transparent via-amber-400/50 to-transparent w-[200%] h-full animate-shimmer-pass opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
+                </div>
+                <div class="border-2 border-transparent rounded-xl p-2 relative overflow-hidden animate-border-pulse">
+                    <!-- Sparkle Border -->
+                    <div
+                        class="absolute inset-0 rounded-xl p-[2px] bg-gradient-to-r from-amber-200 via-rose-400 to-amber-200 mask-border animate-sparkle-run">
+                    </div>
+                    <div class="absolute inset-[2px] bg-white rounded-[10px] z-0"></div>
+
+                    <p class="relative z-10 text-xs font-bold text-amber-600 leading-tight">
+                        Visit booth <span class="text-rose-600 font-black">D2 @ Chennai Trade Center</span> <br />
+                        on <span class="text-rose-600 font-black">24/25th Feb</span> for exclusive Offers
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Subhead -->
+        <div class="md:hidden w-full text-center mt-3 pt-3 relative z-0">
+            <div class="inline-block relative p-[2px] overflow-hidden rounded-xl">
+                <div
+                    class="absolute inset-0 bg-gradient-to-r from-amber-200 via-rose-500 to-amber-200 animate-sparkle-run">
+                </div>
+                <div class="relative bg-white rounded-[10px] px-4 py-2">
+                    <p class="text-base font-bold text-amber-600 leading-snug">
+                        Visit booth <span class="text-rose-600 font-black text-lg">D2 @ Chennai Trade Center</span>
+                        <br />
+                        on <span class="text-rose-600 font-black text-lg">24/25th Feb</span> for exclusive Offers
+                    </p>
+                </div>
+            </div>
         </div>
 
-        <div class="flex items-center gap-2 md:gap-3 flex-wrap justify-end ml-auto mr-2">
+        <div class="hidden md:flex items-center gap-2 md:gap-3 flex-wrap justify-end ml-auto mr-2">
             <a href="https://www.qtick.com" target="_blank"
                 class="px-3 py-1.5 bg-white/40 hover:bg-amber-50 rounded-xl text-xs font-black uppercase tracking-wider transition-all border border-slate-200 backdrop-blur-sm flex items-center gap-2">
                 <i data-lucide="globe" class="w-3.5 h-3.5"></i> qtick.com
@@ -585,7 +745,7 @@
             </a>
         </div>
 
-        <div class="flex items-center gap-2">
+        <div class="hidden md:flex items-center gap-2">
             <div
                 class="flex items-center gap-1 text-[10px] md:text-xs font-black text-amber-600 uppercase bg-amber-100/50 px-3 py-1.5 rounded-full border border-amber-200 animate-glow-pulse">
                 <i data-lucide="zap" class="w-3 h-3"></i> ABC Expo Live
@@ -602,13 +762,14 @@
 
 
                 <h1
-                    class="text-3xl md:text-5xl font-black text-slate-900 leading-[0.95] tracking-tighter mb-4 animate-reveal-up entry-delay-1">
+                    class="hidden md:block text-3xl md:text-5xl font-black text-slate-900 leading-[0.95] tracking-tighter mb-4 animate-reveal-up entry-delay-1">
                     Welcome to QTick at ABC Expo<br />
                     <span class="text-amber-600">Avail Exclusive Offers.</span>
                 </h1>
 
                 <!-- CLEAN TAB MENU -->
-                <div class="tab-menu-container no-scrollbar animate-reveal-up entry-delay-2">
+                <div
+                    class="tab-menu-container no-scrollbar animate-reveal-up entry-delay-2 sticky top-0 z-40 md:relative md:top-auto mb-6 md:mb-8">
                     <button onclick="switchTab('free-website')" id="btn-free-website" class="menu-btn active">
                         <i data-lucide="globe"></i>
                         <span>Free Site</span>
@@ -991,18 +1152,59 @@
         </div>
     </footer>
 
+    <!-- Fixed Mobile Footer -->
+    <div
+        class="fixed bottom-0 left-0 w-full bg-white border-t border-slate-200 p-2 flex justify-between items-center md:hidden z-50 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.05)] gap-1">
+        <a href="https://www.qtick.com" target="_blank"
+            class="flex flex-col items-center gap-0.5 text-slate-500 hover:text-amber-600 px-1 min-w-[50px]">
+            <i data-lucide="globe" class="w-4 h-4"></i>
+            <span class="text-[8px] font-black uppercase">Web</span>
+        </a>
+        <a href="https://www.qtick.biz" target="_blank"
+            class="flex flex-col items-center gap-0.5 text-slate-500 hover:text-amber-600 px-1 min-w-[50px]">
+            <i data-lucide="briefcase" class="w-4 h-4"></i>
+            <span class="text-[8px] font-black uppercase">Biz</span>
+        </a>
+        <a href="https://www.qtick.co/industry-salon-software.html" target="_blank"
+            class="flex flex-col items-center gap-0.5 text-rose-600 hover:text-rose-700 px-1 min-w-[50px]">
+            <i data-lucide="smartphone" class="w-4 h-4"></i>
+            <span class="text-[8px] font-black uppercase">App</span>
+        </a>
+        <button onclick="document.querySelector('#form-container').scrollIntoView({behavior: 'smooth'})"
+            class="flex-1 bg-amber-600 text-white px-3 py-2.5 rounded-xl font-black uppercase tracking-wider text-[10px] shadow-lg shadow-amber-500/30 active:scale-95 transition-transform flex items-center justify-center gap-2 ml-1">
+            Register Now <i data-lucide="arrow-right" class="w-3 h-3"></i>
+        </button>
+    </div>
+
     <script>
-        // Initialize Icons
+        // Init Lucide Icons
         lucide.createIcons();
 
         // Winners Data
 
 
-
-
-
         // Fixed Tab Switching Logic
         function switchTab(tabId) {
+            // Mobile: Scroll to section
+            if (window.innerWidth < 768) {
+                const element = document.getElementById(tabId);
+                // Update active button state visually
+                document.querySelectorAll('.menu-btn').forEach(btn => btn.classList.remove('active'));
+                const activeBtn = document.getElementById(`btn-${tabId}`);
+                if (activeBtn) {
+                    activeBtn.classList.add('active');
+                    activeBtn.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+                }
+
+                if (element) {
+                    // Small offset for the sticky menu
+                    const y = element.getBoundingClientRect().top + window.scrollY - 160;
+                    window.scrollTo({ top: y, behavior: 'smooth' });
+                }
+                return;
+            }
+
+            // Desktop Logic
             // 1. Manage Content Visibility
             const contents = document.querySelectorAll('.tab-content');
             contents.forEach(content => {
@@ -1040,22 +1242,72 @@
         }
 
         // Handle Form
-        function handleFormSubmit(e) {
+        // Handle Form
+        async function handleFormSubmit(e) {
             e.preventDefault();
-            const formData = new FormData(e.target);
-            const container = document.getElementById('form-container');
+            const submitBtn = e.target.querySelector('button[type="submit"]');
+            const originalBtnText = submitBtn.innerHTML;
 
-            container.innerHTML = `
-                <div class="text-center py-12 flex flex-col items-center">
-                    <div class="w-24 h-24 bg-emerald-500 text-white rounded-full flex items-center justify-center mb-8 shadow-2xl shadow-emerald-500/40 animate-bounce">
-                        <i data-lucide="check-circle" class="w-12 h-12"></i>
-                    </div>
-                    <h3 class="text-4xl font-black text-slate-900 mb-4 tracking-tighter">You're Registered!</h3>
-                    <p class="text-xl text-slate-600 font-medium leading-relaxed mb-10">Our Salon Expert will call you on <span class="font-black text-slate-900 underline decoration-emerald-200">${formData.get('mobile')}</span> for your Free Website setup.</p>
-                    <button onclick="window.location.reload()" class="text-amber-600 font-black text-lg hover:underline underline-offset-8">Register another business</button>
-                </div>
-            `;
+            // Loading State
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<i data-lucide="loader-2" class="w-5 h-5 animate-spin"></i> Processing...';
             lucide.createIcons();
+
+            const formData = new FormData(e.target);
+            const name = formData.get('ownerName');
+            const mobile = formData.get('mobile');
+            const businessName = formData.get('businessName');
+            const city = formData.get('city');
+            const plan = formData.get('plan');
+
+            // Concatenate message
+            const concatenatedMessage = `Business: ${businessName} | City: ${city} | Plan: ${plan}`;
+
+            const baseUrl = 'https://api.qa.qtick.co/web/v2/add-biz';
+            const url = new URL(baseUrl);
+            url.searchParams.append('name', name);
+            url.searchParams.append('email', mobile); // Mapping mobile to email param as requested
+            url.searchParams.append('message', concatenatedMessage);
+
+            try {
+                const response = await fetch(url.toString(), {
+                    method: 'POST',
+                    headers: {
+                        'Authorization': 'bizprofile-web:D9yGl4wpT1'
+                    }
+                });
+
+                if (response.ok) {
+                    // Success State
+                    const container = document.getElementById('form-container');
+                    container.innerHTML = `
+                        <div class="text-center py-12 flex flex-col items-center animate-reveal-up">
+                            <div class="w-24 h-24 bg-emerald-500 text-white rounded-full flex items-center justify-center mb-8 shadow-2xl shadow-emerald-500/40 animate-bounce">
+                                <i data-lucide="check-circle" class="w-12 h-12"></i>
+                            </div>
+                            <h3 class="text-3xl md:text-4xl font-black text-slate-900 mb-4 tracking-tighter">Thanks for the registration!</h3>
+                            <p class="text-xl text-slate-600 font-medium leading-relaxed mb-10">See you at Expo</p>
+                            <button onclick="window.location.reload()" class="text-amber-600 font-black text-lg hover:underline underline-offset-8">Register another business</button>
+                        </div>
+                    `;
+                    lucide.createIcons();
+                    // Track conversion event if needed
+                    if (typeof gtag === 'function') {
+                        gtag('event', 'generate_lead', {
+                            'event_category': 'form',
+                            'event_label': plan
+                        });
+                    }
+                } else {
+                    throw new Error('Network response was not ok');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Something went wrong. Please try again.');
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = originalBtnText;
+                lucide.createIcons();
+            }
         }
 
         // Initial setup on page load
