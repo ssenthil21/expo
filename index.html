@@ -1261,6 +1261,14 @@
             const city = formData.get('city');
             const plan = formData.get('interest'); // Mapped from name="interest"
 
+            // Debugging Logs
+            console.log('--- Registration Debug ---');
+            console.log('Form Mappings:');
+            console.log('Name:', name);
+            console.log('Mobile:', mobile);
+            console.log('Business:', businessName);
+            console.log('Plan:', plan);
+
             // Concatenate message
             // Concatenate message with Mobile included
             const concatenatedMessage = `Business: ${businessName} | City: ${city} | Plan: ${plan} | Mobile: ${mobile}`;
@@ -1271,6 +1279,8 @@
             // Email format requirement: phonenumber@gmail.com
             url.searchParams.append('email', `${mobile}@gmail.com`);
             url.searchParams.append('message', concatenatedMessage);
+
+            console.log('Constructed URL:', url.toString());
 
             try {
                 const response = await fetch(url.toString(), {
@@ -1305,8 +1315,8 @@
                     throw new Error('Network response was not ok');
                 }
             } catch (error) {
-                console.error('Error:', error);
-                alert('Something went wrong. Please try again.');
+                console.error('Registration/Network Error:', error);
+                alert('Registration failed due to network error. See console for details.');
                 submitBtn.disabled = false;
                 submitBtn.innerHTML = originalBtnText;
                 lucide.createIcons();
