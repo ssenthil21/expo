@@ -1316,7 +1316,22 @@
                 }
             } catch (error) {
                 console.error('Registration/Network Error:', error);
-                alert('Registration failed due to network error. See console for details.');
+
+                let errorMsg = 'Registration failed. ';
+                if (error.name === 'TypeError' && error.message === 'Failed to fetch') {
+                    // Smart Error Message based on Environment
+                    const isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' || window.location.protocol === 'file:';
+
+                    if (isLocal) {
+                        errorMsg += 'Likely a CORS issue (Browser blocking the API). \n\nSince you are testing locally, the browser prevents requests to the remote API. \n\nTry installing a "Allow CORS" browser extension to test.';
+                    } else {
+                        errorMsg += 'Network request failed. Please check your connection or try again later.';
+                    }
+                } else {
+                    errorMsg += 'Please check console for details.';
+                }
+
+                alert(errorMsg);
                 submitBtn.disabled = false;
                 submitBtn.innerHTML = originalBtnText;
                 lucide.createIcons();
