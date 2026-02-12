@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/api/add-biz",
+      "destination": "https://api.qa.qtick.co/web/v2/add-biz"
+    }
+  ]
+}
