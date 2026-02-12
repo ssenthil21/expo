@@ -1273,8 +1273,19 @@
             // Concatenate message with Mobile included
             const concatenatedMessage = `Business: ${businessName} | City: ${city} | Plan: ${plan} | Mobile: ${mobile}`;
 
-            const baseUrl = 'https://api.qa.qtick.co/web/v2/add-biz';
-            const url = new URL(baseUrl);
+            // Determine API URL based on environment
+            let baseUrl;
+            const isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' || window.location.protocol === 'file:';
+
+            if (isLocal) {
+                // Direct call for local testing (might need CORS extension)
+                baseUrl = 'https://api.qa.qtick.co/web/v2/add-biz';
+            } else {
+                // Vercel Proxy for production
+                baseUrl = '/api/add-biz';
+            }
+
+            const url = new URL(baseUrl, window.location.origin); // Ensure robust URL construction
             url.searchParams.append('name', name);
             // Email format requirement: phonenumber@gmail.com
             url.searchParams.append('email', `${mobile}@gmail.com`);
