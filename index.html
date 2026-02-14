@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QTick Suite | ABC Expo 2026 Special</title>
+    <title>QTick at ABC Expo 2026 Chennai | Free Salon Biz Profile & Offers @ Trade Center</title>
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-7L33WE0WWW"></script>
     <script>
@@ -15,9 +15,65 @@
         gtag('config', 'G-7L33WE0WWW');
     </script>
     <meta name="description"
-        content="Visit QTick Suite at ABC Expo 2026! Get your Free Salon Website and win prizes. #abcexpo2026 #aihba #aihbasouthindia #aihbaawards #abcexpo">
+        content="Join QTick at ABC Expo 2026, Chennai Trade Center (Feb 24-25). Visit Booth D2 for exclusive salon software deals, free website setup, and daily lucky draws. #abcexpo2026 #chennaitradecenter">
     <meta name="keywords"
-        content="abcexpo2026, aihba, aihbasouthindia, aihbaawards, abcexpo, salon software, qtick, free website, salon marketing">
+        content="ABC Expo 2026 Chennai, Chennai Trade Center events, AIHBA South India, beauty expo Chennai 2026, salon exhibition Chennai, QTick ABC Expo, salon software India, beauty trade show Chennai, free salon website, salonexpo, beautyexpo, chennaievents, salonsoftware">
+
+    <!-- Open Graph / Facebook / WhatsApp -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.qtick.com/">
+    <meta property="og:title" content="QTick at ABC Expo 2026 Chennai | Free Salon Biz Profile & Offers">
+    <meta property="og:description"
+        content="Visit Booth D2 at Chennai Trade Center (Feb 24-25). Get exclusive salon software deals, free website setup, and win daily prizes!">
+    <meta property="og:image" content="https://www.qtick.com/QTick-Logo.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://www.qtick.com/">
+    <meta property="twitter:title" content="QTick at ABC Expo 2026 Chennai">
+    <meta property="twitter:description"
+        content="Join us at Chennai Trade Center! Free Salon Biz Profile + Daily Lucky Draws.">
+    <meta property="twitter:image" content="https://www.qtick.com/QTick-Logo.png">
+
+    <!-- JSON-LD Structured Data for Event -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Event",
+      "name": "ABC Expo 2026",
+      "startDate": "2026-02-24",
+      "endDate": "2026-02-25",
+      "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "location": {
+        "@type": "Place",
+        "name": "Chennai Trade Center",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Mount Poonamallee Road, Nandambakkam",
+          "addressLocality": "Chennai",
+          "postalCode": "600089",
+          "addressRegion": "Tamil Nadu",
+          "addressCountry": "IN"
+        }
+      },
+      "image": [
+        "https://www.qtick.com/Abc-logo.PNG",
+        "https://www.qtick.com/QTick-Logo.png"
+      ],
+      "description": "Join QTick at ABC Expo 2026, South India's premier beauty expo at Chennai Trade Center. Discover salon software solutions, get a free website, and participate in daily lucky draws.",
+      "organizer": {
+        "@type": "Organization",
+        "name": "AIHBA South India",
+        "url": "https://www.instagram.com/aihbasouthindia/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "QTick",
+        "url": "https://www.qtick.com"
+      }
+    }
+    </script>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -583,7 +639,33 @@
                 scroll-margin-top: 220px;
                 position: relative;
                 overflow: hidden;
+                font-size: 0.8rem;
+                /* Compact font for mobile cards */
             }
+
+            /* Override Tailwind sizes for mobile cards */
+            .tab-content h2 {
+                font-size: 1.25rem !important;
+                line-height: 1.2 !important;
+            }
+
+            /* text-xl */
+            .tab-content p {
+                font-size: 0.95rem !important;
+            }
+
+            /* text-sm/base */
+            .tab-content li {
+                font-size: 0.85rem !important;
+            }
+
+            /* text-sm */
+            .tab-content .text-5xl {
+                font-size: 2.5rem !important;
+            }
+
+            /* Reduce huge text */
+
 
             /* Theme accents */
             #free-website.tab-content {
@@ -637,6 +719,24 @@
 
         }
 
+        /* Subhead Shrink Animation */
+        #mobile-subhead-card {
+            transition: all 0.3s ease;
+        }
+
+        #mobile-subhead-card.subhead-shrunk .relative.bg-white {
+            padding: 4px 12px !important;
+        }
+
+        #mobile-subhead-card.subhead-shrunk p {
+            font-size: 0.75rem !important;
+            line-height: 1.2 !important;
+        }
+
+        #mobile-subhead-card.subhead-shrunk p span {
+            font-size: 0.85rem !important;
+        }
+
         /* Global Animation */
         @keyframes sparkle-run {
             0% {
@@ -686,14 +786,23 @@
     <!-- Header -->
     <header
         class="bg-white/80 backdrop-blur-xl border-b border-amber-100 px-4 md:px-8 py-3 md:py-4 flex flex-col md:flex-row items-center justify-between shrink-0 sticky top-0 z-50 shadow-sm animate-slide-top">
-        <div class="flex items-center gap-2 md:gap-3 flex-wrap">
-            <img src="QTick-Logo.png" alt="QTick Logo" class="h-8 md:h-10 w-auto brand-glint" />
-            <span class="font-black text-lg md:text-xl tracking-tight text-slate-800">QTick</span>
-            <span class="font-black text-lg md:text-xl tracking-tight text-amber-600">Participating in</span>
-            <a href="https://www.instagram.com/aihbasouthindia/" target="_blank" class="contents">
-                <img src="Abc-logo.PNG" alt="ABC Expo Logo" class="h-10 md:h-12 w-auto object-contain brand-glint" />
-            </a>
-            <span class="font-black text-lg md:text-xl tracking-tight text-amber-600">ABC Expo 2026</span>
+        <div class="flex items-center justify-between w-full md:w-auto md:justify-start gap-2 md:gap-3">
+            <!-- Left: QTick -->
+            <div class="flex items-center gap-2">
+                <img src="QTick-Logo.png" alt="QTick Salon Software Logo" class="h-8 md:h-10 w-auto brand-glint" />
+                <span class="font-black text-lg md:text-xl tracking-tight text-slate-800">QTick</span>
+            </div>
+
+            <!-- Right: ABC Expo -->
+            <div class="flex flex-col md:flex-row items-end md:items-center gap-0 md:gap-3 text-right md:text-left">
+                <a href="https://www.instagram.com/aihbasouthindia/" target="_blank" class="contents">
+                    <img src="Abc-logo.PNG" alt="ABC Expo 2026 Chennai Event Logo"
+                        class="h-10 md:h-12 w-auto object-contain brand-glint" />
+                </a>
+                <span
+                    class="font-black text-xs md:text-xl tracking-tight text-amber-600 leading-none md:leading-normal">ABC
+                    Expo 2026</span>
+            </div>
 
             <!-- Desktop Subhead -->
             <div class="hidden md:block ml-6 pl-6 relative group">
@@ -716,7 +825,7 @@
         </div>
         <!-- Mobile Subhead -->
         <div class="md:hidden w-full text-center mt-3 pt-3 relative z-0">
-            <div class="inline-block relative p-[2px] overflow-hidden rounded-xl">
+            <div id="mobile-subhead-card" class="inline-block relative p-[2px] overflow-hidden rounded-xl">
                 <div
                     class="absolute inset-0 bg-gradient-to-r from-amber-200 via-rose-500 to-amber-200 animate-sparkle-run">
                 </div>
@@ -995,8 +1104,7 @@
                             <h2 class="text-3xl md:text-5xl font-black text-slate-900 mb-4 tracking-tighter">Win
                                 Ultimate Prizes!</h2>
                             <p class="text-lg md:text-2xl text-slate-600 font-bold mb-10 leading-relaxed max-w-2xl">
-                                Every
-                                3 hours,
+                                Daily,
                                 <span class="text-rose-jewel uppercase underline decoration-rose-200">5 Lucky
                                     winners</span> get selected for special
                                 rewards!
@@ -1144,10 +1252,11 @@
         </div>
         <div class="flex flex-col items-end gap-1">
             <div class="text-amber-400 font-black animate-pulse text-center uppercase tracking-widest">
-                Winners Announced Every 3 Hours at the Booth
+                Winners Announced Daily at the Booth
             </div>
             <div class="text-[8px] text-amber-500/40 font-bold uppercase tracking-widest hidden md:block">
-                #abcexpo2026 #aihba #aihbasouthindia #aihbaawards #abcexpo
+                #abcexpo2026 #aihba #aihbasouthindia #aihbaawards #abcexpo #salonexpo #beautyexpo #chennaievents
+                #salonsoftware
             </div>
         </div>
     </footer>
@@ -1273,19 +1382,8 @@
             // Concatenate message with Mobile included
             const concatenatedMessage = `Business: ${businessName} | City: ${city} | Plan: ${plan} | Mobile: ${mobile}`;
 
-            // Determine API URL based on environment
-            let baseUrl;
-            const isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' || window.location.protocol === 'file:';
-
-            if (isLocal) {
-                // Direct call for local testing (might need CORS extension)
-                baseUrl = 'https://api.qa.qtick.co/web/v2/add-biz';
-            } else {
-                // Vercel Proxy for production
-                baseUrl = '/api/add-biz';
-            }
-
-            const url = new URL(baseUrl, window.location.origin); // Ensure robust URL construction
+            const baseUrl = 'https://api.qa.qtick.co/web/v2/add-biz';
+            const url = new URL(baseUrl);
             url.searchParams.append('name', name);
             // Email format requirement: phonenumber@gmail.com
             url.searchParams.append('email', `${mobile}@gmail.com`);
@@ -1302,6 +1400,9 @@
                 });
 
                 if (response.ok) {
+                    const responseData = await response.text();
+                    console.log('API Response Body:', responseData);
+
                     // Success State
                     const container = document.getElementById('form-container');
                     container.innerHTML = `
@@ -1352,6 +1453,18 @@
         // Initial setup on page load
         document.addEventListener('DOMContentLoaded', () => {
             switchTab('free-website');
+
+            // Mobile Header Shrink on Scroll
+            window.addEventListener('scroll', () => {
+                const subhead = document.getElementById('mobile-subhead-card');
+                if (subhead && window.innerWidth < 768) {
+                    if (window.scrollY > 50) {
+                        subhead.classList.add('subhead-shrunk');
+                    } else {
+                        subhead.classList.remove('subhead-shrunk');
+                    }
+                }
+            });
         });
     </script>
 </body>
